@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl  bg-gray-700 border-b border-white/10">
+      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-gray-700 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -87,7 +87,7 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between mb-12">
                 <h2 className="text-2xl font-bold text-white">
-                  TJ<span className="text-cyan-400">Kleen</span>
+                  Kleen<span className="text-cyan-400">Nova </span>
                 </h2>
 
                 <button onClick={() => setIsOpen(false)}>
