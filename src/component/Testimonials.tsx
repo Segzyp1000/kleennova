@@ -6,13 +6,13 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Homeowner",
     review:
-      "TJ Kleen transformed my home completely. Their attention to detail is exceptional, and my house has never looked this spotless.",
+      "KleenNova transformed my home completely. Their attention to detail is exceptional, and my house has never looked this spotless.",
   },
   {
     name: "Michael Adeyemi",
     role: "Business Owner",
     review:
-      "We've outsourced our office cleaning to TJ Kleen for over a year now. Professional team, reliable service, and zero headaches.",
+      "We've outsourced our office cleaning to KleenNova for over a year now. Professional team, reliable service, and zero headaches.",
   },
   {
     name: "Chioma Okafor",
@@ -25,14 +25,14 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section
-      id="testimonials"
+      id="testimonial"
       className="relative bg-[#f8fafc] py-28 px-6 overflow-hidden"
     >
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-200/30 blur-[140px] rounded-full" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/30 blur-[140px] rounded-full" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
