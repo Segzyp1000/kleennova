@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -7,23 +8,15 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
-    { name: "Testimonials", href: "#testimonial" },
-    { name: "How We Work", href: "#how" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
+    { name: "Testimonials", path: "testimonials" },
+    { name: "How We Work", path: "how-we-work" },
+    { name: "Services", path: "services" },
+    { name: "Contact", path: "contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const hero = document.getElementById("hero");
-
-      if (!hero) {
-        setScrolled(window.scrollY > 100);
-        return;
-      }
-
-      const heroBottom = hero.offsetHeight - 100;
-      setScrolled(window.scrollY > heroBottom);
+      setScrolled(window.scrollY > window.innerHeight - 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -33,51 +26,80 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   return (
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled
             ? "bg-[#020617]/95 backdrop-blur-xl border-b border-white/10 shadow-xl"
-            : "bg-transparent border-transparent"
+            : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <motion.a
-              href="#hero"
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-xl font-bold tracking-wide text-white"
             >
-              Kleen<span className="text-cyan-400">Nova</span>
-            </motion.a>
+              <Link
+                to="hero"
+                smooth={true}
+                duration={500}
+                offset={-80}
+                className="cursor-pointer text-xl font-bold tracking-wide text-white"
+              >
+                Kleen<span className="text-cyan-400">Nova</span>
+              </Link>
+            </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link, index) => (
-                <motion.a
+                <motion.div
                   key={link.name}
-                  href={link.href}
                   initial={{ opacity: 0, y: -15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative text-white font-medium text-sm uppercase tracking-wider"
                 >
-                  {link.name}
+                  <Link
+                    to={link.path}
+                    spy={true}
+                    smooth={true}
+                    offset={-80}
+                    duration={500}
+                    activeClass="text-cyan-400"
+                    className="group relative cursor-pointer text-white font-medium text-sm uppercase tracking-wider transition-colors duration-300"
+                  >
+                    {link.name}
 
-                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
-                </motion.a>
+                    <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                </motion.div>
               ))}
 
-              <motion.button
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="hidden lg:block px-5 py-2.5 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition-all duration-300"
               >
-                Get Started
-              </motion.button>
+                <Link
+                  to="contact"
+                  smooth={true}
+                  duration={500}
+                  offset={-80}
+                  className="hidden lg:block cursor-pointer px-5 py-2.5 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition-all duration-300"
+                >
+                  Get Started
+                </Link>
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -128,25 +150,39 @@ export default function Navbar() {
 
               <div className="flex flex-col gap-8">
                 {navLinks.map((link, index) => (
-                  <motion.a
+                  <motion.div
                     key={link.name}
-                    href={link.href}
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg text-gray-300 hover:text-cyan-400 transition duration-300"
                   >
-                    {link.name}
-                  </motion.a>
+                    <Link
+                      to={link.path}
+                      spy={true}
+                      smooth={true}
+                      offset={-80}
+                      duration={500}
+                      activeClass="text-cyan-400"
+                      onClick={() => setIsOpen(false)}
+                      className="cursor-pointer text-lg text-gray-300 hover:text-cyan-400 transition duration-300"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 ))}
 
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-6 w-full py-3 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition"
-                >
-                  Get Started
-                </motion.button>
+                <motion.div whileTap={{ scale: 0.95 }}>
+                  <Link
+                    to="contact"
+                    smooth={true}
+                    duration={500}
+                    offset={-80}
+                    onClick={() => setIsOpen(false)}
+                    className="mt-6 w-full flex items-center justify-center py-3 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition cursor-pointer"
+                  >
+                    Get Started
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           </>

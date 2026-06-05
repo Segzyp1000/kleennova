@@ -1,7 +1,15 @@
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
+  const items = [
+    { name: "Testimonials", path: "testimonials" },
+    { name: "How We Work", path: "how-we-work" },
+    { name: "Services", path: "services" },
+    { name: "Contact", path: "contact" },
+  ];
+
   return (
     <footer className="relative bg-[#020617] overflow-hidden">
       {/* Glow Effects */}
@@ -27,37 +35,37 @@ export default function Footer() {
             </p>
           </div>
 
-          <button className="group px-8 py-4 bg-white text-cyan-700 rounded-full font-semibold flex items-center gap-2 hover:gap-4 transition-all duration-300">
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            offset={-80}
+            className="group cursor-pointer px-8 py-4 bg-white text-cyan-700 rounded-full font-semibold flex items-center gap-2 hover:gap-4 transition-all duration-300"
+          >
             Book A Service
             <ArrowUpRight size={18} />
-          </button>
+          </Link>
         </motion.div>
 
         {/* Main Footer */}
-        <div className="grid lg:grid-cols-4 gap-12 py-24 px-16">
+        <div className="grid lg:grid-cols-4 gap-12 py-24 xl:px-9 px-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h2 className="text-4xl font-bold text-white">
+            <Link
+              to="hero"
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className="cursor-pointer text-4xl font-bold text-white"
+            >
               Kleen<span className="text-cyan-400">Nova</span>
-            </h2>
+            </Link>
 
             <p className="mt-6 text-gray-400 max-w-md leading-relaxed">
               Professional cleaning services for homes, offices, construction
               sites, and commercial properties. Delivering spotless results with
               reliability, professionalism, and excellence.
             </p>
-
-            {/* <div className="flex gap-4 mt-8">
-              {[Facebook, Instagram, Linkedin].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/30 transition duration-300"
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
-            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -67,24 +75,29 @@ export default function Footer() {
             </h3>
 
             <ul className="space-y-4">
-              {["Home", "Services", "About", "Testimonials", "Contact"].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-cyan-400 transition duration-300"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ),
-              )}
+              {items.map((item) => (
+                <li                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                key={item.name}>
+                  <Link
+                    to={item.path}
+                    spy={true}
+                    smooth={true}
+                    offset={-80}
+                    duration={500}
+                    activeClass="text-cyan-400"
+                    className="cursor-pointer text-gray-400 hover:text-cyan-400 transition duration-300"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-6">Contact</h3>
+            <h3 className="text-white text-lg font-semibold mb-6">
+              Contact
+            </h3>
 
             <div className="space-y-5">
               <div className="flex items-start gap-3">
@@ -94,7 +107,7 @@ export default function Footer() {
 
               <div className="flex items-start gap-3">
                 <Mail size={18} className="text-cyan-400 mt-1" />
-                <span className="text-gray-400">hello@tjkleen.com</span>
+                <span className="text-gray-400">hello@kleennova.com</span>
               </div>
 
               <div className="flex items-start gap-3">
@@ -108,23 +121,17 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} TJ Kleen. All rights reserved.
+            © {new Date().getFullYear()} KleenNova. All rights reserved.
           </p>
 
           <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-gray-500 hover:text-cyan-400 text-sm transition"
-            >
+            <button className="text-gray-500 hover:text-cyan-400 text-sm transition">
               Privacy Policy
-            </a>
+            </button>
 
-            <a
-              href="#"
-              className="text-gray-500 hover:text-cyan-400 text-sm transition"
-            >
+            <button className="text-gray-500 hover:text-cyan-400 text-sm transition">
               Terms & Conditions
-            </a>
+            </button>
           </div>
         </div>
       </div>

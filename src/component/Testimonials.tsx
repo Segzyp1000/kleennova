@@ -25,7 +25,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section
-      id="testimonial"
+      id="testimonials"
       className="relative bg-[#f8fafc] py-28 px-6 overflow-hidden"
     >
       {/* Background Glow */}

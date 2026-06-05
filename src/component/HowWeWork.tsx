@@ -50,7 +50,7 @@ const workSteps = [
 export default function HowWeWork() {
   return (
     <section
-      id="how"
+      id="how-we-work"
       className="relative bg-[#f8fafc] py-28 px-6 overflow-hidden"
     >
       {/* Background Glow */}

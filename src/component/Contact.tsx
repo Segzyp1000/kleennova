@@ -183,7 +183,7 @@ export default function Contact() {
               type="submit"
               className="inline-flex items-center gap-2 rounded-xl text-gray-900 bg-cyan-400 hover:bg-cyan-200 py-5 px-7 font-semibold text-lg hover:gap-4 transition-all duration-300"
             >
-              Send Quotes <Send size={18} />
+              Send Message <Send size={18} />
             </motion.button>
           </motion.form>
         </div>

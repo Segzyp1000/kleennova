@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
@@ -36,7 +37,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section id='hero' className="relative h-screen overflow-hidden">
       {/* Background Slider */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -87,9 +88,9 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <button className="px-8 py-4 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition duration-300">
+            <Link to="contact" className="px-8 py-4 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition duration-300">
               Book Now
-            </button>
+            </Link>
 
             <button className="px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/10 transition duration-300">
               Learn More
