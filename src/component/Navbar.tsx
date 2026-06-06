@@ -8,9 +8,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
-    { name: "Testimonials", path: "testimonials" },
-    { name: "How We Work", path: "how-we-work" },
     { name: "Services", path: "services" },
+    { name: "How We Work", path: "how-we-work" },
+    { name: "Testimonials", path: "testimonials" },
     { name: "Contact", path: "contact" },
   ];
 
@@ -81,7 +81,7 @@ export default function Navbar() {
                   >
                     {link.name}
 
-                    <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
                   </Link>
                 </motion.div>
               ))}

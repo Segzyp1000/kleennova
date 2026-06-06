@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
+import { Element } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
@@ -37,83 +38,88 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id='hero' className="relative h-screen overflow-hidden">
-      {/* Background Slider */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2 }}
-          className="absolute inset-0"
-        >
-          <img
-            src={slides[current].image}
-            alt="Hero Background"
-            className="w-full h-full object-cover"
-          />
-
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/60" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full px-6">
-        <div className="text-center max-w-4xl">
-          <motion.h1
-            key={slides[current].title}
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-tight"
-          >
-            {slides[current].title}
-          </motion.h1>
-
-          <motion.p
-            key={slides[current].subtitle}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed"
-          >
-            {slides[current].subtitle}
-          </motion.p>
-
+    <Element name="hero">
+      <section className="relative h-screen overflow-hidden">
+        {/* Background Slider */}
+        <AnimatePresence mode="wait">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+            key={current}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2 }}
+            className="absolute inset-0"
           >
-            <Link to="contact" className="px-8 py-4 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition duration-300">
-              Book Now
-            </Link>
+            <img
+              src={slides[current].image}
+              alt="Hero Background"
+              className="w-full h-full object-cover"
+            />
 
-            <button className="px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/10 transition duration-300">
-              Learn More
-            </button>
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-black/60" />
           </motion.div>
+        </AnimatePresence>
+
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center h-full px-6">
+          <div className="text-center max-w-4xl">
+            <motion.h1
+              key={slides[current].title}
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-tight"
+            >
+              {slides[current].title}
+            </motion.h1>
+
+            <motion.p
+              key={slides[current].subtitle}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed"
+            >
+              {slides[current].subtitle}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Link
+                to="contact"
+                className="px-8 py-4 rounded-full bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition duration-300"
+              >
+                Book Now
+              </Link>
+
+              <button className="px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/10 transition duration-300">
+                Learn More
+              </button>
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#030712] to-transparent z-10" />
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#030712] to-transparent z-10" />
 
-      {/* Slider Indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`h-3 rounded-full transition-all duration-300 ${
-              current === index ? "w-10 bg-cyan-400" : "w-3 bg-white/50"
-            }`}
-          />
-        ))}
-      </div>
-    </section>
+        {/* Slider Indicators */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrent(index)}
+              className={`h-3 rounded-full transition-all duration-300 ${
+                current === index ? "w-10 bg-cyan-400" : "w-3 bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
+      </section>
+    </Element>
   );
 }

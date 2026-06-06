@@ -4,9 +4,9 @@ import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const items = [
-    { name: "Testimonials", path: "testimonials" },
-    { name: "How We Work", path: "how-we-work" },
     { name: "Services", path: "services" },
+    { name: "How We Work", path: "how-we-work" },
+    { name: "Testimonials", path: "testimonials" },
     { name: "Contact", path: "contact" },
   ];
 
@@ -22,7 +22,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative -mt-10 bg-gradient-to-r from-cyan-600 to-cyan-500 rounded-[2rem] p-10 md:p-14 flex flex-col lg:flex-row items-center justify-between gap-8"
+          className="relative -mt-10 bg-linear-to-r from-cyan-600 to-cyan-500 rounded-4xl p-10 md:p-14 flex flex-col lg:flex-row items-center justify-between gap-8"
         >
           <div>
             <h2 className="text-3xl md:text-5xl font-bold text-white">
@@ -76,7 +76,7 @@ export default function Footer() {
 
             <ul className="space-y-4">
               {items.map((item) => (
-                <li                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                key={item.name}>
+                <li key={item.name}>
                   <Link
                     to={item.path}
                     spy={true}
@@ -95,9 +95,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-6">
-              Contact
-            </h3>
+            <h3 className="text-white text-lg font-semibold mb-6">Contact</h3>
 
             <div className="space-y-5">
               <div className="flex items-start gap-3">
