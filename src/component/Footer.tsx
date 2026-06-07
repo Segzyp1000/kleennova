@@ -25,7 +25,7 @@ export default function Footer() {
           className="relative -mt-10 bg-linear-to-r from-cyan-600 to-cyan-500 rounded-4xl p-10 md:p-14 flex flex-col lg:flex-row items-center justify-between gap-8"
         >
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mt-10">
               Ready For A Cleaner Space?
             </h2>
 
