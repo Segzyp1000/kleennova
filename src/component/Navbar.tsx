@@ -57,7 +57,7 @@ export default function Navbar() {
                 offset={-80}
                 className="cursor-pointer text-xl font-bold tracking-wide text-white"
               >
-                Kleen<span className="text-cyan-400">Nova</span>
+                Wemz<span className="text-cyan-400">Kleen</span>
               </Link>
             </motion.div>
 
@@ -138,17 +138,17 @@ export default function Navbar() {
               }}
               className="fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-[#020617] border-l border-white/10 z-50 p-8"
             >
-              <div className="flex items-center justify-between mb-16">
+              {/* <div className="flex items-center justify-between mb-16">
                 <h2 className="text-2xl font-bold text-white">
-                  Kleen<span className="text-cyan-400">Nova</span>
+                  Wem<span className="text-cyan-400">Nova</span>
                 </h2>
 
                 <button onClick={() => setIsOpen(false)}>
                   <X className="text-white" size={28} />
                 </button>
-              </div>
+              </div> */}
 
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-8 mt-20">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.name}

@@ -56,9 +56,9 @@ export default function Footer() {
               smooth={true}
               duration={500}
               offset={-80}
-              className="cursor-pointer text-4xl font-bold text-white"
+              className="cursor-pointer text-2xl font-bold text-white"
             >
-              Kleen<span className="text-cyan-400">Nova</span>
+              Wemz<span className="text-cyan-400">Kleen</span>
             </Link>
 
             <p className="mt-6 text-gray-400 max-w-md leading-relaxed">

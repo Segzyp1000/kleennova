@@ -7,13 +7,13 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Homeowner",
     review:
-      "KleenNova transformed my home completely. Their attention to detail is exceptional, and my house has never looked this spotless.",
+      "WemzKleen transformed my home completely. Their attention to detail is exceptional, and my house has never looked this spotless.",
   },
   {
     name: "Michael Adeyemi",
     role: "Business Owner",
     review:
-      "We've outsourced our office cleaning to KleenNova for over a year now. Professional team, reliable service, and zero headaches.",
+      "We've outsourced our office cleaning to WemzKleen for over a year now. Professional team, reliable service, and zero headaches.",
   },
   {
     name: "Chioma Okafor",
